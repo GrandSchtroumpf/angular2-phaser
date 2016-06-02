@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
-import { GameComponent } from '../../../main/game/component/game.component';
+import { RouteState } from '../../../main/routes/state/route.state';
 
 
 @Component({
@@ -13,10 +13,11 @@ import { GameComponent } from '../../../main/game/component/game.component';
   
 export class HomeComponent{
   
-  constructor(private router : Router, private gameComponent:GameComponent){}
+  constructor(private router : Router, private routeState:RouteState){}
   
   startGame(){
-    //var game = this.gameComponent.game;
+    this.routeState.game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'starter');
+    this.routeState.game.state.start('Loader');
     this.router.navigate(['/loader']);
   }
 }

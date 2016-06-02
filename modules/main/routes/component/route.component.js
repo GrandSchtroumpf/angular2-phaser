@@ -10,11 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var route_state_1 = require('../state/route.state');
 var home_component_1 = require('../../../home/home/component/home.component');
 var loader_component_1 = require('../../loader/component/loader.component');
 var RouteComponent = (function () {
-    function RouteComponent(router) {
+    function RouteComponent(router, routeState) {
         this.router = router;
+        this.routeState = routeState;
     }
     RouteComponent.prototype.ngOnInit = function () {
         this.router.navigate(['/home']);
@@ -29,7 +31,7 @@ var RouteComponent = (function () {
             { path: '/home', component: home_component_1.HomeComponent },
             { path: '/loader', component: loader_component_1.LoaderComponent }
         ]), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [router_1.Router, route_state_1.RouteState])
     ], RouteComponent);
     return RouteComponent;
 }());

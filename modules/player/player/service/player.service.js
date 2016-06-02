@@ -9,27 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var loader_component_1 = require('../../loader/component/loader.component');
-var GameComponent = (function () {
-    function GameComponent() {
-        this._game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'starter');
-        this.setStates();
+var PlayerService = (function () {
+    function PlayerService() {
     }
-    Object.defineProperty(GameComponent.prototype, "game", {
+    Object.defineProperty(PlayerService.prototype, "player", {
         get: function () {
-            return this._game;
+            return this._player;
+        },
+        set: function (newPlayer) {
+            this._player = newPlayer;
         },
         enumerable: true,
         configurable: true
     });
-    GameComponent.prototype.setStates = function () {
-        this._game.state.add('Loader', loader_component_1.LoaderComponent, true);
-    };
-    GameComponent = __decorate([
+    PlayerService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], GameComponent);
-    return GameComponent;
+    ], PlayerService);
+    return PlayerService;
 }());
-exports.GameComponent = GameComponent;
-//# sourceMappingURL=game.component.js.map
+exports.PlayerService = PlayerService;
+//# sourceMappingURL=player.service.js.map

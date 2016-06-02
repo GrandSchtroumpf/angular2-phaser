@@ -10,14 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var game_component_1 = require('../../../main/game/component/game.component');
+var route_state_1 = require('../../../main/routes/state/route.state');
 var HomeComponent = (function () {
-    function HomeComponent(router, gameComponent) {
+    function HomeComponent(router, routeState) {
         this.router = router;
-        this.gameComponent = gameComponent;
+        this.routeState = routeState;
     }
     HomeComponent.prototype.startGame = function () {
-        //var game = this.gameComponent.game;
+        this.routeState.game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'starter');
+        this.routeState.game.state.start('Loader');
         this.router.navigate(['/loader']);
     };
     HomeComponent = __decorate([
@@ -27,7 +28,7 @@ var HomeComponent = (function () {
             templateUrl: '../home.html',
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, game_component_1.GameComponent])
+        __metadata('design:paramtypes', [router_1.Router, route_state_1.RouteState])
     ], HomeComponent);
     return HomeComponent;
 }());
